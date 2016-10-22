@@ -14,8 +14,7 @@ class Tag
   def save
     sql = "INSERT INTO tags (name, colour)
     VALUES ('#{@name}', '#{@colour}')
-    RETURNING *
-      "
+    RETURNING *"
     tag_data = SqlRunner.run( sql )
     @id = tag_data.first['id'].to_i
   end

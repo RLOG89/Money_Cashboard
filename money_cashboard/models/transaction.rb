@@ -14,6 +14,10 @@ class Transaction
   end
 
   def save
-    
+    sql = "INSERT INTO transactions ('date', 'merchant', 'description', 'amount')
+    VALUES ('#{@date}', '#{@merchant}', '#{@description}', '#{@amount}')
+    RETURNING *"
+    transaction_data = SqlRunner.run( sql )
+    @id = transaction_data.first['id'].to_i
   end
 end
