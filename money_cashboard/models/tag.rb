@@ -32,4 +32,9 @@ class Tag
     SqlRunner.run( sql )
   end
 
+  def self.all
+    sql = "SELECT * FROM tags"    
+    return Tag.map_items( sql )
+  end
+
 end
