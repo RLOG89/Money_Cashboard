@@ -19,4 +19,9 @@ class Tag
     @id = tag_data.first['id'].to_i
   end
 
+  def update
+    sql = "UPDATE tags SET (name, colour) = ('#{@name}', '#{@colour}') where id = #{@id}"
+    SqlRunner.run( sql )
+  end
+
 end
