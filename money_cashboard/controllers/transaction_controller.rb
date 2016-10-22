@@ -21,7 +21,12 @@ get '/transactions/:id' do
   erb(:'transactions/show')
 end
 
-get '/transactions' do 
+get '/transactions/:id/edit' do 
   @transactions = Transaction.find( params[:id] )
   erb(:'transactions/edit')
+end
+
+put '/transactions/:id' do
+  @transactions = Transaction.update( params )
+  redirect to( "/transactions/#{params[:id]}" )
 end
