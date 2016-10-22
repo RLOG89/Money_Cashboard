@@ -30,3 +30,8 @@ put '/transactions/:id' do
   @transactions = Transaction.update( params )
   redirect to( "/transactions/#{params[:id]}" )
 end
+
+put '/transactions/:id' do
+  Transaction.destroy( params [:id] )
+  redirect to ('/transactions')
+end
