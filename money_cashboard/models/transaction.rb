@@ -13,5 +13,7 @@ class Transaction
     @amount = options['amonut'].to_f
   end
 
-
+  def save
+    
+  end
 end
