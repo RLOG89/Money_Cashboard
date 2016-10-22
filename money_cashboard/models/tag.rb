@@ -20,7 +20,9 @@ class Tag
   end
 
   def update
-    sql = "UPDATE tags SET (name, colour) = ('#{@name}', '#{@colour}') where id = #{@id}"
+    sql = "UPDATE tags SET (name, colour) 
+    = ('#{@name}', '#{@colour}') 
+    where id = #{@id}"
     SqlRunner.run( sql )
   end
 

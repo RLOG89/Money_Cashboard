@@ -11,13 +11,21 @@ class Transaction
     @merchant = options['merchant']
     @description = options['description']
     @amount = options['amonut'].to_f
+    @tag_id = options['tag_id'].to_i
   end
 
   def save
-    sql = "INSERT INTO transactions ('date', 'merchant', 'description', 'amount')
-    VALUES ('#{@date}', '#{@merchant}', '#{@description}', '#{@amount}')
+    sql = "INSERT INTO transactions (date, merchant, description, amount, tag_id)
+    VALUES ('#{@date}', '#{@merchant}', '#{@description}', '#{@amount}', '#{@tag_id}')
     RETURNING *"
     transaction_data = SqlRunner.run( sql )
     @id = transaction_data.first['id'].to_i
+  end
+
+  def update
+    sql = "UPDATE transactions SET (date, merchant, description, amount, tag_id) 
+    = ('#{@date}', '#{@merchant}', '#{@description}', #{@amount}, #{@tag_id})
+    WHERE id = #{@id}"
+    SqlRunner.run( sql )
   end
 end
