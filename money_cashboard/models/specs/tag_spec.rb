@@ -16,4 +16,7 @@ class TestTransaction < MiniTest::Test
     assert_equal("Food", @tag.name)
   end
 
+  def test_tag_has_colour
+    assert_equal("Red", @tag.colour)
+  end
 end
