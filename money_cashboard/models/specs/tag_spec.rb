@@ -1,5 +1,6 @@
 require('minitest/autorun')
 require('minitest/rg')
+require('pry-byebug')
 require_relative('../tag')
 
 class TestTransaction < MiniTest::Test
@@ -19,4 +20,5 @@ class TestTransaction < MiniTest::Test
   def test_tag_has_colour
     assert_equal("Red", @tag.colour)
   end
+
 end
