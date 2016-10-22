@@ -28,4 +28,9 @@ class Transaction
     WHERE id = #{options['id']}"
     SqlRunner.run( sql )
   end
+
+  def self.destroy( id )
+    sql = "DELETE FROM transacactions WHERE id = #{id}"
+    SqlRunner.run( sql )
+  end
 end
