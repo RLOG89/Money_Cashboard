@@ -1,1 +1,15 @@
 <h1> Add Transaction </h1>
+
+<form action="/transactions" method="post">
+  <label for="date">Date:</label>
+  <input type="date" name="date">
+  <label for="merchant">Merchant:</label>
+  <input type="text" name="merchant">
+  <label for="description">Description:</label>
+  <input type="text" name="description">
+  <label for="amount">Amount:</label>
+  <input type="number" name="amount">
+  
+
+  <input type='submit' value="Add Transaction">
+</form>
