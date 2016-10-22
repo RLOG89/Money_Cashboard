@@ -22,10 +22,10 @@ class Transaction
     @id = transaction_data.first['id'].to_i
   end
 
-  def update
+  def self.update( options )
     sql = "UPDATE transactions SET (date, merchant, description, amount, tag_id) 
-    = ('#{@date}', '#{@merchant}', '#{@description}', #{@amount}, #{@tag_id})
-    WHERE id = #{@id}"
+    = ('#{options['date']}', '#{options['merchant']}', '#{options['description']}', #{options['amount']}, #{options['tag_id']})
+    WHERE id = #{options['id']}"
     SqlRunner.run( sql )
   end
 end
