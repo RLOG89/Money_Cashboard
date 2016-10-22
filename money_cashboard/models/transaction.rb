@@ -44,4 +44,11 @@ class Transaction
     result = transactions.map { |transaction| Transaction.new(transaction) }
     return result
   end
+
+  def self.find( id )
+    sql = "SELECT * FROM transactions WHERE id = #{id}"
+    transaction = SqlRunner.run( sql ).first
+    result = Transaction.new(transaction)
+    return result
+  end
 end
