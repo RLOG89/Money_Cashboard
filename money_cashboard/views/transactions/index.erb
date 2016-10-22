@@ -1,0 +1,19 @@
+<div>
+<h1>Transactions</h1>
+
+<% @transactions.each do |transaction| %>
+<b>Date</b>
+<p><%= transaction.date %></p>
+<b>Merchant</b>
+<p><%= transaction.merchant %></p>
+<b>Description</b>
+<p><%= transaction.description %></p>
+<b>Amount</b>
+<p><%= transaction.amount %></p>
+
+<hr>
+<a href="/transactions/new">Add new transaction</a><br>
+<% end %>
+</div>
+
+
