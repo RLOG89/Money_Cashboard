@@ -17,4 +17,8 @@ class TestTransaction < MiniTest::Test
   def test_transaction_has_date
     assert_equal(22/10/2016, @transaction.date)
   end
+
+  def test_transaction_has_merchant
+    assert_equal("Tesco", @transaction.merchant)
+  end
 end
