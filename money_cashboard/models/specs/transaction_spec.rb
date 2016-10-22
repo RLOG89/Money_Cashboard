@@ -21,4 +21,8 @@ class TestTransaction < MiniTest::Test
   def test_transaction_has_merchant
     assert_equal("Tesco", @transaction.merchant)
   end
+
+  def test_transaction_has_description
+    assert_equal("Weekly food shop", @transaction.description)
+  end
 end
