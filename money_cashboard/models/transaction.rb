@@ -36,12 +36,12 @@ class Transaction
 
   def self.all
     sql = "SELECT * FROM transactions"
-    return Tag.map_items( sql )
+    return Transaction.map_items( sql )
   end
 
-  def self.map_items
+  def self.map_items( sql )
     tags = SqlRunner.run( sql )
-    result = tags.map {|tag| Tag.new(tag)}
+    result = tags.map { |tag| Tag.new(tag) }
     return result
   end
 end
