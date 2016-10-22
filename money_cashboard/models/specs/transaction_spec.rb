@@ -9,7 +9,7 @@ class TestTransaction < MiniTest::Test
       'date' => 22/10/2016,
       'merchant' => "Tesco",
       'description' => "Weekly food shop",
-      'amount' => 50
+      'amount' => 51.50
     }
     @transaction = Transaction.new( options )
   end
@@ -24,5 +24,9 @@ class TestTransaction < MiniTest::Test
 
   def test_transaction_has_description
     assert_equal("Weekly food shop", @transaction.description)
+  end
+
+  def test_transaction_has_amount
+    assert_equal(51.50, @transaction.amount)
   end
 end
