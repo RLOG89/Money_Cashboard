@@ -13,10 +13,15 @@ end
 post '/transactions/?' do
   @transaction = Transaction.new( params )
   @transaction.save
-  redirect to('/transactions')
+  redirect to(:'/transactions/create')
 end
 
 get '/transactions/:id' do
   @transactions = Transaction.find( params[:id] ) 
   erb(:'transactions/show')
+end
+
+get '/transactions' do 
+  @transactions = Transaction.find( params[:id] )
+  erb(:'transactions/edit')
 end
