@@ -27,4 +27,9 @@ class Tag
     SqlRunner.run( sql )
   end
 
+  def self.destroy( id )
+    sql = "DELETE FROM tags WHERE id = #{id}"
+    SqlRunner.run( sql )
+  end
+
 end
