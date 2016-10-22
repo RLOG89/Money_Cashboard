@@ -2,36 +2,35 @@ require_relative('../models/transaction')
 
 get '/transactions/?' do
   @transactions = Transaction.all
-  erb(:'transactions/index')
+  erb( :'transactions/index' )
 end
 
 get '/transactions/new' do
-  @transactions = Transaction.all
-  erb(:'transactions/new')
+  erb( :'transactions/new' )
 end
 
 post '/transactions/?' do
   @transaction = Transaction.new( params )
   @transaction.save
-  redirect to(:'/transactions/create')
+  redirect to( :'/transactions/create' )
 end
 
 get '/transactions/:id' do
-  @transactions = Transaction.find( params[:id] ) 
-  erb(:'transactions/show')
+  @transaction = Transaction.find( params[:id] ) 
+  erb( :'transactions/show' )
 end
 
 get '/transactions/:id/edit' do 
-  @transactions = Transaction.find( params[:id] )
-  erb(:'transactions/edit')
+  @transaction = Transaction.find( params[:id] )
+  erb( :'transactions/edit' )
 end
 
 put '/transactions/:id' do
-  @transactions = Transaction.update( params )
+  @transaction = Transaction.update( params )
   redirect to( "/transactions/#{params[:id]}" )
 end
 
 put '/transactions/:id' do
   Transaction.destroy( params [:id] )
-  redirect to ('/transactions')
+  redirect to ( '/transactions' )
 end

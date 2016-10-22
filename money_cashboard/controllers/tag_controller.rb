@@ -2,16 +2,20 @@ require_relative('../models/tag')
 
 get '/tags/?' do
   @tags = Tag.all
-  erb(:'tags/index')
+  erb( :'tags/index' )
 end
 
 get '/tags/new' do
-  @tags = Tag.all
-  erb(:'tags/new')
+  erb( :'tags/new' )
 end
 
 post '/tags/?' do
   @tag = Tag.new( params )
   @tag.save
-  redirect to(:'/tags/create')
+  redirect to( :'/tags/create' )
+end
+
+get '/tags/:id' do
+  @tag = Tag.find( params[:id] )
+  erb( :show )
 end
