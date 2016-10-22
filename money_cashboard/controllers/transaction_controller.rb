@@ -15,3 +15,8 @@ post '/transactions/?' do
   @transaction.save
   redirect to('/transactions')
 end
+
+get '/transactions/:id' do
+  @transactions = Transaction.find( params[:id] ) 
+  erb(:'transactions/show')
+end
