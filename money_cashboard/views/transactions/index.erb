@@ -9,10 +9,12 @@
 <b>Description</b>
 <p><%= transaction.description %></p>
 <b>Amount</b>
-<p><%= transaction.amount %></p>
+<p>£<%= transaction.amount %></p>
 <b>Tag</b>
-<p><=% transaction.tags %></p>
+<p><=% transaction.tag.name %></p>
 <hr>
+<b>Total Spend</b>
+<p><%= Transaction.total_spend %>
 <a href="/transactions/new">Add new transaction</a><br>
 <% end %>
 </div>

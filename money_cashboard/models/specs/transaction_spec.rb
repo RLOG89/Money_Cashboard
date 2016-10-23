@@ -1,5 +1,6 @@
 require('minitest/autorun')
 require('minitest/rg')
+require('date')
 require_relative('../transaction')
 
 class TestTransaction < MiniTest::Test
@@ -11,7 +12,9 @@ class TestTransaction < MiniTest::Test
       'description' => "Weekly food shop",
       'amount' => 51.50
     }
+
     @transaction = Transaction.new( options )
+
   end
 
   def test_transaction_has_date
@@ -29,4 +32,5 @@ class TestTransaction < MiniTest::Test
   def test_transaction_has_amount
     assert_equal(51.50, @transaction.amount)
   end
+
 end

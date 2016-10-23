@@ -1,3 +1,4 @@
+require('date')
 require_relative('../db/sql_runner')
 
 class Transaction
@@ -22,9 +23,9 @@ class Transaction
     @id = transaction_data.first['id'].to_i
   end
 
-  def tags
+  def tag
     sql = "SELECT * FROM tags WHERE id = #{@tag_id}"
-    return Tag.map_items( sql )
+    return Tag.map_item( sql )
   end
 
   def self.update( options )
@@ -58,4 +59,15 @@ class Transaction
     sql = "SELECT * FROM transactions WHERE id = #{id}"
     return Transaction.map_item( sql )
   end
+
+  def self.total_spend
+    total = 0
+    all_transactions = Transaction.all
+    for transaction in all_transactions
+      amount = transaction.amount
+      total += amount
+    end
+    return total
+  end
+  
 end
