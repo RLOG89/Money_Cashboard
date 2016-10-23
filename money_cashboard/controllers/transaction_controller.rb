@@ -12,7 +12,7 @@ end
 post '/transactions/?' do
   @transaction = Transaction.new( params )
   @transaction.save
-  redirect to( :'/transactions/create' )
+  redirect to( '/transactions' )
 end
 
 get '/transactions/:id' do

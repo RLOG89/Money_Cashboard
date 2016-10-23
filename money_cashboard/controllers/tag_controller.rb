@@ -12,7 +12,7 @@ end
 post '/tags/?' do
   @tag = Tag.new( params )
   @tag.save
-  redirect to( :'/tags/create' )
+  redirect to( '/tags' )
 end
 
 get '/tags/:id' do
