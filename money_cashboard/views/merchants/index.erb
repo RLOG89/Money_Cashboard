@@ -1,0 +1,10 @@
+<div>
+<h1>Merchants/h1>
+
+<% @merchants.each do |merchant| %>
+<b>Name</b>
+<p><%= merchant.name %></p>
+<% end %>
+<hr>
+<a href="/merchants/new">Add new merchant</a><br>
+</div>
