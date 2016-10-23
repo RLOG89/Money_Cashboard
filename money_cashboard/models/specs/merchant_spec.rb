@@ -3,7 +3,7 @@ require('minitest/rg')
 require('pry-byebug')
 require_relative('../merchant')
 
-class TestTransaction < MiniTest::Test
+class TestMerchant < MiniTest::Test
 
   def setup
     options = {

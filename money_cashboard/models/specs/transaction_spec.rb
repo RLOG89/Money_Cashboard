@@ -10,9 +10,7 @@ class TestTransaction < MiniTest::Test
       'date' => 22/10/2016,
       'amount' => 51.50
     }
-
     @transaction = Transaction.new( options )
-
   end
 
   def test_transaction_has_date
