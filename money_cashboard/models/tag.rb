@@ -47,4 +47,9 @@ class Tag
     Tag.map_items(sql).first
   end
 
+  def self.find( id )
+    sql = "SELECT * FROM tags WHERE id = #{id}"
+    return Tag.map_item( sql )
+  end
+
 end
