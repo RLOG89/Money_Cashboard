@@ -7,6 +7,7 @@ end
 
 get '/transactions/new' do
   @tags = Tag.all
+  @merchants = Merchant.all
   erb( :'transactions/new' )
 end
 
