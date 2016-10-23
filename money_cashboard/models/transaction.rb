@@ -27,6 +27,11 @@ class Transaction
     return Tag.map_item( sql )
   end
 
+  def merchant
+    sql = "SELECT * FROM merchants WHERE id = #{@merchant_id}"
+    return Merchant.map_item( sql )
+  end
+
   def self.update( options )
     sql = "UPDATE transactions SET (date, merchant_id, amount, tag_id) 
     = ('#{options['date']}', #{options['merchant_id']}, #{options['amount']}, #{options['tag_id']})

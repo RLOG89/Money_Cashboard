@@ -16,7 +16,7 @@ name VARCHAR(255)
 CREATE TABLE transactions (
 id SERIAL4 PRIMARY KEY,
 date DATE,
-merchant_id VARCHAR(255) REFERENCES merchants(id) ON DELETE CASCADE,
+merchant_id INT4 REFERENCES merchants(id) ON DELETE CASCADE,
 amount DECIMAL(19,2),
 tag_id INT4 REFERENCES tags(id) ON DELETE CASCADE
 );
