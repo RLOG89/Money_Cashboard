@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS tags;
+DROP TABLE IF EXISTS merchants;
 
 CREATE TABLE tags (
 id SERIAL4 PRIMARY KEY,
@@ -7,11 +8,15 @@ name VARCHAR(255),
 colour VARCHAR(50)
 );
 
+CREATE TABLE merchants (
+id SERIAL4 PRIMARY KEY,
+name VARCHAR(255)
+);
+
 CREATE TABLE transactions (
 id SERIAL4 PRIMARY KEY,
 date DATE,
-merchant VARCHAR(255),
-description VARCHAR(255),
+merchant VARCHAR(255) REFERENCES merchants(id) ON DELETE CASCADE,
 amount DECIMAL(19,2),
 tag_id INT4 REFERENCES tags(id) ON DELETE CASCADE
 );
