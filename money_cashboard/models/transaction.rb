@@ -3,21 +3,20 @@ require_relative('../db/sql_runner')
 
 class Transaction
 
-  attr_reader( :id, :date, :merchant, :description, :amount, :tag_id )
+  attr_reader( :id, :date, :merchant_id, :amount, :tag_id )
 
   def initialize( options )
     id = options['id'].to_i 
     @id = id if id != nil
     @date = options['date']
-    @merchant = options['merchant']
-    @description = options['description']
+    @merchant_id = options['merchant_id'].to_i
     @amount = options['amount'].to_f
     @tag_id = options['tag_id'].to_i
   end
 
   def save
-    sql = "INSERT INTO transactions (date, merchant, description, amount, tag_id)
-    VALUES ('#{@date}', '#{@merchant}', '#{@description}', #{@amount}, #{@tag_id})
+    sql = "INSERT INTO transactions (date, merchant_id, amount, tag_id)
+    VALUES ('#{@date}', #{@merchant_id}, #{@amount}, #{@tag_id})
     RETURNING *"
     transaction_data = SqlRunner.run( sql )
     @id = transaction_data.first['id'].to_i
@@ -29,8 +28,8 @@ class Transaction
   end
 
   def self.update( options )
-    sql = "UPDATE transactions SET (date, merchant, description, amount, tag_id) 
-    = ('#{options['date']}', '#{options['merchant']}', '#{options['description']}', #{options['amount']}, #{options['tag_id']})
+    sql = "UPDATE transactions SET (date, merchant_id, amount, tag_id) 
+    = ('#{options['date']}', #{options['merchant_id']}, #{options['amount']}, #{options['tag_id']})
     WHERE id = #{options['id']}"
     SqlRunner.run( sql )
   end
@@ -69,5 +68,5 @@ class Transaction
     end
     return total
   end
-  
+
 end
