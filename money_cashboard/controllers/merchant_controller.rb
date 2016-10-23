@@ -17,12 +17,12 @@ end
 
 get '/merchants/:id' do
   @merchant = Merchant.find( params[:id] )
-  erb( :show )
+  erb( :'merchants/show' )
 end
 
 get '/merchants/:id/edit' do
   @merchant = Merchant.find( params[:id] )
-  erb( :edit )
+  erb( :'merchants/edit' )
 end
 
 put '/merchants/:id' do

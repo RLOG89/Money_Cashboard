@@ -6,7 +6,7 @@
 
   <label for="merchant">Merchant:</label>
   <select name="merchant_id">
-      <% @merchants.each do |merchant %>
+      <% @merchants.each do |merchant| %>
         <option value="<%= merchant.id %>"><%= merchant.name %></option>    
       <% end %>
   </select>

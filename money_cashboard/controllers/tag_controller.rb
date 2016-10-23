@@ -17,12 +17,12 @@ end
 
 get '/tags/:id' do
   @tag = Tag.find( params[:id] )
-  erb( :show )
+  erb( :'tags/show' )
 end
 
 get '/tags/:id/edit' do
   @tag = Tag.find( params[:id] )
-  erb( :edit )
+  erb( :'tags/edit' )
 end
 
 put '/tags/:id' do
@@ -32,5 +32,5 @@ end
 
 put '/tags/:id' do
   Tag.destroy( params[:id] )
-  redirect to ('/tags')
+  redirect to ( '/tags' )
 end
