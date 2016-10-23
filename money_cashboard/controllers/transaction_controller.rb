@@ -6,6 +6,7 @@ get '/transactions/?' do
 end
 
 get '/transactions/new' do
+  @tags = Tag.all
   erb( :'transactions/new' )
 end
 
