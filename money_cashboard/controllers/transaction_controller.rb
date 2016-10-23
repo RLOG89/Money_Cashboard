@@ -31,6 +31,6 @@ put '/transactions/:id' do
 end
 
 put '/transactions/:id' do
-  Transaction.destroy( params [:id] )
+  Transaction.destroy( params[:id] )
   redirect to ( '/transactions' )
 end

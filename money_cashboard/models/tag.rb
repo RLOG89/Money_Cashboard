@@ -19,6 +19,11 @@ class Tag
     @id = tag_data.first['id'].to_i
   end
 
+  def transactions
+    sql = "SELECT * FROM transactions WHERE tag_id = #{@id}"
+    SqlRunner.run( sql )
+  end
+
   def self.update( options )
     sql = "UPDATE tags SET
     name = '#{options['name']}',
@@ -41,6 +46,10 @@ class Tag
     tags = SqlRunner.run( sql )
     result = tags.map{ |tag| Tag.new(tag) }
     return result
+  end
+
+  def self.map_item( sql )
+    Tag.map_items(sql).first
   end
 
 end

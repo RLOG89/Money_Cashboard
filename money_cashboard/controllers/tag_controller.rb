@@ -29,3 +29,8 @@ put '/tags/:id' do
   @tag = Tag.update( params )
   redirect to( "/tags/#{params[:id]}" )
 end
+
+put '/tags/:id' do
+  Tag.destroy( params[:id] )
+  redirect to ('/tags')
+end
