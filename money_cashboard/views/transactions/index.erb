@@ -20,6 +20,7 @@ p#tag-colour-<%=transaction.tag.colour%> {
 </style>
 <p id='tag-colour-<%=transaction.tag.colour%>' ><%= transaction.tag.name %></p>
 <hr>
+<a href="/transactions/<%= transaction.id %>/edit">Edit transaction</a><br>
 <% end %>
 <hr>
 <a href="/transactions/new">Add new transaction</a><br>

@@ -22,18 +22,16 @@ class Tag
 
   def transactions
     sql = "SELECT transactions.* FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id WHERE tags.id = '#{@id}'"
+    SqlRunner.run( sql ).first
   end
 
   def total_spend
     sql = "SELECT SUM (transactions.amount), tags.name FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id  WHERE tags.name = '#{@name}' GROUP BY tags.name;"
-    pg_result = SqlRunner.run( sql )
-    result_hash = pg_result.first
+    result_hash = SqlRunner.run( sql ).first
     if (result_hash.nil?)
       return 0.0
     end
-    total_value = result_hash['sum']
-    float_result = total_value.to_f
-    return float_result
+     return result_hash['sum'].to_f
   end
 
   def self.update( options )
