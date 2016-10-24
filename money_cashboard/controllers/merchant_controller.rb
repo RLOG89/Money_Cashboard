@@ -30,7 +30,7 @@ put '/merchants/:id' do
   redirect to( "/merchants/#{params[:id]}" )
 end
 
-put '/merchants/:id' do
+delete '/merchants/:id' do
   Merchant.destroy( params[:id] )
   redirect to ('/merchants')
 end

@@ -3,7 +3,10 @@
 <form action="/merchants/<%= @merchant.id %>" method="post">
   <input type="hidden" name="_method" value="put">
   <label for="name">Name:</label>
-  <input type="text" name="name" value="<%= @merchant.name %>">
-  
+  <input type="text" name="name" value="<%= @merchant.name %>"><br>
   <input type='submit' value="Update Merchant">
+</form>
+<form action="/merchants/<%= @merchant.id %>" method="post">
+  <input type='submit' value="Delete Merchant">
+  <input type="hidden" name="_method" value="delete">
 </form>
