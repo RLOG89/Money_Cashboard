@@ -19,6 +19,11 @@ class Merchant
     @id = merchant_data.first['id'].to_i
   end
 
+  def transactions
+    sql = "SELECT * FROM transactions INNER JOIN merchants ON transactions.merchant_id = merchants.id WHERE merchants.id =#{@id}"
+    Transaction.map_items( sql )
+  end
+
   def self.update( options )
     sql = "UPDATE merchants SET
     name = '#{options['name']}'
