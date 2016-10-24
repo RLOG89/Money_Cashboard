@@ -9,12 +9,7 @@
 <p><%= tag.name %></p>
 
 <b>Colour</b>
-<style>
-p#tag-colour-<%=tag.colour%> {
-  background-color: <%=tag.colour%>;
-}
-</style>
-<p id='tag-colour-<%=tag.colour%>' ><%= tag.colour %></p>
+<span id='tag' style="background-color: <%=tag.colour%>;"></span>
 <a href="/tags/<%= tag.id %>/edit">Edit tag</a><br>
 <hr>
 <% end %>

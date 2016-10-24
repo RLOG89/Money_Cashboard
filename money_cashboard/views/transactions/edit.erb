@@ -1,7 +1,7 @@
 <h1>Edit Transaction</h1>
 
 <form action="/transactions/<%= @transaction.id %>" method="post">
-<input type="hidden" name="method" value="put">
+<input type="hidden" name="_method" value="put">
 
   <label for="date">Date:</label>
   <input type="date" name="date" value="<%= @transaction.date %>">
