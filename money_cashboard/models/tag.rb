@@ -20,6 +20,22 @@ class Tag
     @id = tag_data.first['id'].to_i
   end
 
+  def transactions
+    sql = "SELECT transactions.* FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id WHERE tags.id = '#{@id}'"
+  end
+
+  def total_spend
+    sql = "SELECT SUM (transactions.amount), tags.name FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id  WHERE tags.name = '#{@name}' GROUP BY tags.name;"
+    pg_result = SqlRunner.run( sql )
+    result_hash = pg_result.first
+    if (result_hash.nil?)
+      return 0.0
+    end
+    total_value = result_hash['sum']
+    float_result = total_value.to_f
+    return float_result
+  end
+
   def self.update( options )
     sql = "UPDATE tags SET
     name = '#{options['name']}',
@@ -51,18 +67,6 @@ class Tag
   def self.find( id )
     sql = "SELECT * FROM tags WHERE id = #{id}"
     return Tag.map_item( sql )
-  end
-
-  def total_spend
-    sql = "SELECT SUM (transactions.amount), tags.name FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id  WHERE tags.name = '#{@name}' GROUP BY tags.name;"
-    pg_result = SqlRunner.run( sql )
-    result_hash = pg_result.first
-    if (result_hash.nil?)
-      return 0.0
-    end
-    total_value = result_hash['sum']
-    float_result = total_value.to_f
-    return float_result
   end
 
 end

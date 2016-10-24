@@ -3,13 +3,21 @@
 
 <% @tags.each do |tag| %>
 <h3>Total Spend</h3>
-<p>£<%= sprintf('%.2f', tag.total_spend) %>
+<p>£<%= sprintf('%.2f', tag.total_spend) %></p>
+
 <b>Name</b>
 <p><%= tag.name %></p>
+
 <b>Colour</b>
-<p><%= tag.colour %></p>
+<style>
+p#tag-colour-<%=tag.colour%> {
+  background-color: <%=tag.colour%>;
+}
+</style>
+<p id='tag-colour-<%=tag.colour%>' ><%= tag.colour %></p>
 <hr>
 <% end %>
+
 <hr>
 <a href="/tags/new">Add new tag</a><br>
 </div>
