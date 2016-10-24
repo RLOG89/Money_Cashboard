@@ -21,8 +21,7 @@ class Tag
   end
 
   def transactions
-    sql = "SELECT transactions.* FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id WHERE tags.id = '#{@id}'"
-    SqlRunner.run( sql ).first
+
   end
 
   def total_spend
