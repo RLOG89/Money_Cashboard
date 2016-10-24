@@ -30,7 +30,7 @@ put '/tags/:id' do
   redirect to( "/tags/#{params[:id]}" )
 end
 
-put '/tags/:id' do
+delete '/tags/:id' do
   Tag.destroy( params[:id] )
   redirect to ( '/tags' )
 end
