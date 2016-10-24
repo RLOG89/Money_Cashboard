@@ -22,6 +22,11 @@
         <option value="<%= tag.id %>" <%= 'selected' if @transaction.tag.id == tag.id %>><%= tag.name %></option>    
       <% end %>
   </select>
-  
+  <br>
   <input type='submit' value="Update Transaction">
+</form>
+
+<form action="/transactions/<%= @transaction.id %>" method="post">
+  <input type='submit' value="Delete Transaction">
+  <input type="hidden" name="_method" value="delete">
 </form>

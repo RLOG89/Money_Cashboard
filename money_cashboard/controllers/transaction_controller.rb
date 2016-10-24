@@ -34,7 +34,7 @@ put '/transactions/:id' do
   redirect to( "/transactions/#{params[:id]}" )
 end
 
-put '/transactions/:id' do
+delete '/transactions/:id' do
   Transaction.destroy( params[:id] )
   redirect to ( '/transactions' )
 end
