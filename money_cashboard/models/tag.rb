@@ -1,6 +1,6 @@
 require_relative('../db/sql_runner')
 require_relative('./transaction')
-
+require('pry-byebug')
 class Tag
 
   attr_reader( :id, :name, :colour )
@@ -53,7 +53,16 @@ class Tag
     return Tag.map_item( sql )
   end
 
-  def self.total_spend_per_tag
-    sql = "SELECT transactions.* FROM transactions INNER JOIN tags ON transactions.tag_id = 1;"
+  def total_spend
+    sql = "SELECT SUM (transactions.amount), tags.name FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id  WHERE tags.name = '#{@name}' GROUP BY tags.name;"
+    pg_result = SqlRunner.run( sql )
+    result_hash = pg_result.first
+    if (result_hash.nil?)
+      return 0.0
+    end
+    total_value = result_hash['sum']
+    float_result = total_value.to_f
+    return float_result
   end
+
 end
