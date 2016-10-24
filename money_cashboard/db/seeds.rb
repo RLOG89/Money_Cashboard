@@ -31,7 +31,7 @@ merchant6.save
 merchant7.save
 merchant8.save
 
-transaction1 = Transaction.new({'date' => '2016/10/22', 'merchant_id' => merchant2.id, 'amount' => 43.50, 'tag_id' => tag6.id})
+transaction1 = Transaction.new({'date' => '2016/10/22', 'merchant_id' => merchant2.id, 'amount' => 43.50, 'tag_id' => tag1.id})
 transaction2 = Transaction.new({'date' => '2016/10/24', 'merchant_id' => merchant1.id, 'amount' => 21.55, 'tag_id' => tag2.id})
 transaction3 = Transaction.new({'date' => '2016/10/26', 'merchant_id' => merchant3.id, 'amount' => 57.00, 'tag_id' => tag2.id})
 transaction4 = Transaction.new({'date' => '2016/10/30', 'merchant_id' => merchant6.id, 'amount' => 250.00, 'tag_id' => tag5.id})

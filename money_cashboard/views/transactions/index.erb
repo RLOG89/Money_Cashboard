@@ -14,6 +14,7 @@
 <p>£<%= sprintf('%.2f', transaction.amount) %></p>
 <b>Tag</b>
 <p style='background-color:<%= transaction.tag.colour %>;' ><%= transaction.tag.name %></p>
+<a href="/transactions/<%= transaction.id %>">View</a>
 <a href="/transactions/<%= transaction.id %>/edit">Edit transaction</a><br>
 <hr>
 <% end %>
