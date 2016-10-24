@@ -1,2 +1,12 @@
+<div>
 <h3><%= @tag.name %></h3><br>
-<%= @tag.all %>
+<% @tag.transactions.each do |transaction| %>
+<b>Date</b>
+<p><%= transaction.date %></p>
+<b>Merchant</b>
+<p><%= transaction.merchant.name %></p>
+<b>Amount</b>
+<p>£<%= sprintf('%.2f', transaction.amount) %></p>
+<hr>
+<% end %>
+</div>
