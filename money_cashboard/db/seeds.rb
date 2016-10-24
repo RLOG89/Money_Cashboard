@@ -3,6 +3,10 @@ require_relative('../models/tag')
 require_relative('../models/transaction')
 require_relative('../models/merchant')
 
+tag.delete_all
+merchant.delete_all
+transaction.delete_all
+
 tag1 = Tag.new({'name' => "Food", 'colour' => "blue"})
 tag2 = Tag.new({'name' => "Bills", 'colour' => "red"})
 tag3 = Tag.new({'name' => "Leisure", 'colour' => "green"})

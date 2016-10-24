@@ -67,4 +67,9 @@ class Tag
     return Tag.map_item( sql )
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM tags"
+    SqlRunner.run(sql)
+  end
+
 end

@@ -74,4 +74,9 @@ class Transaction
     return sprintf('%.2f', total)
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM transactions"
+    SqlRunner.run(sql)
+  end
+
 end

@@ -51,4 +51,8 @@ class Merchant
     return Merchant.map_item( sql )
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM merchants"
+    SqlRunner.run(sql)
+  end
 end
