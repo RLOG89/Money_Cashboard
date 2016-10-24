@@ -2,7 +2,7 @@
 <h1>Transactions</h1>
 
 <h3>Total Spend</h3>
-<p><%= Transaction.total_spend %>
+<p>£<%= Transaction.total_spend %>
 <hr>
 
 <% @transactions.each do |transaction| %>
@@ -13,7 +13,12 @@
 <b>Amount</b>
 <p>£<%= sprintf('%.2f', transaction.amount) %></p>
 <b>Tag</b>
-<p><%= transaction.tag.name %></p>
+<style>
+p#tag-colour-<%=transaction.tag.colour%> {
+  background-color: <%=transaction.tag.colour%>;
+}
+</style>
+<p id='tag-colour-<%=transaction.tag.colour%>' ><%= transaction.tag.name %></p>
 <hr>
 <% end %>
 <hr>

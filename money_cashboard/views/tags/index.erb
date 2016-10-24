@@ -2,10 +2,13 @@
 <h1>Tags</h1>
 
 <% @tags.each do |tag| %>
+<h3>Total Spend</h3>
+<p>£<%= sprintf('%.2f', tag.total_spend) %>
 <b>Name</b>
 <p><%= tag.name %></p>
 <b>Colour</b>
 <p><%= tag.colour %></p>
+<hr>
 <% end %>
 <hr>
 <a href="/tags/new">Add new tag</a><br>
