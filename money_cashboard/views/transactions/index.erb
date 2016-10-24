@@ -11,9 +11,9 @@
 <b>Merchant</b>
 <p><%= transaction.merchant.name %></p>
 <b>Amount</b>
-<p>£<%= transaction.amount %></p>
+<p>£<%= sprintf('%.2f', transaction.amount) %></p>
 <b>Tag</b>
-<p><=% transaction.tag.name %></p>
+<p><%= transaction.tag.name %></p>
 <hr>
 <% end %>
 <hr>

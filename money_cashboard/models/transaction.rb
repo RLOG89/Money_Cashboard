@@ -71,7 +71,7 @@ class Transaction
       amount = transaction.amount
       total += amount
     end
-    return total
+    return sprintf('%.2f', total)
   end
 
 end

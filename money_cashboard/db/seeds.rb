@@ -1,7 +1,7 @@
 require('pry-byebug')
-require_relative('./models/tag')
-require_relative('./models/transaction')
-require_relative('./models/merchant')
+require_relative('../models/tag')
+require_relative('../models/transaction')
+require_relative('../models/merchant')
 
 tag1 = Tag.new({'name' => "Food", 'colour' => "blue"})
 tag2 = Tag.new({'name' => "Bills", 'colour' => "red"})
@@ -14,6 +14,22 @@ tag3.save
 tag4.save
 tag5.save
 
+merchant1 = Merchant.new({'name' => "Tesco"})
+merchant2 = Merchant.new({'name' => "Brauhaus"})
+merchant3 = Merchant.new({'name' => "GBEnergySupply"})
+merchant4 = Merchant.new({'name' => "The Wally Dug"})
+merchant5 = Merchant.new({'name' => "O2"})
+merchant6 = Merchant.new({'name' => "Nationwide"})
+merchant7 = Merchant.new({'name' => "BP"})
+merchant8 = Merchant.new({'name' => "Uber"})
+merchant1.save
+merchant2.save
+merchant3.save
+merchant4.save
+merchant5.save
+merchant6.save
+merchant7.save
+merchant8.save
 
 transaction1 = Transaction.new({'date' => '2016/10/22', 'merchant_id' => merchant2.id, 'amount' => 43.50, 'tag_id' => tag1.id})
 transaction2 = Transaction.new({'date' => '2016/10/24', 'merchant_id' => merchant1.id, 'amount' => 21.55, 'tag_id' => tag2.id})
@@ -33,20 +49,3 @@ transaction6.save
 transaction7.save
 transaction8.save
 transaction9.save
-
-merchant1 = Merchant.new({'name' => "Tesco"})
-merchant2 = Merchant.new({'name' => "Brauhaus"})
-merchant3 = Merchant.new({'name' => "GBEnergySupply"})
-merchant4 = Merchant.new({'name' => "The Wally Dug"})
-merchant5 = Merchant.new({'name' => "O2"})
-merchant6 = Merchant.new({'name' => "Nationwide"})
-merchant7 = Merchant.new({'name' => "BP"})
-merchant8 = Merchant.new({'name' => "Uber"})
-merchant1.save
-merchant2.save
-merchant3.save
-merchant4.save
-merchant5.save
-merchant6.save
-merchant7.save
-merchant8.save

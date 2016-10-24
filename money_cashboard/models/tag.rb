@@ -53,4 +53,7 @@ class Tag
     return Tag.map_item( sql )
   end
 
+  def self.total_spend_per_tag
+    sql = "SELECT transactions.* FROM transactions INNER JOIN tags ON transactions.tag_id = 1;"
+  end
 end
