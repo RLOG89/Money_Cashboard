@@ -59,8 +59,10 @@ class Transaction
     SqlRunner.run( sql )
   end
 
-  def self.all
+  def self.all( query= "" )
+    query = query.to_f
     sql = "SELECT * FROM transactions"
+    sql = sql + " WHERE amount ='#{query}'" unless (query < 1.00)
     return Transaction.map_items( sql )
   end
 

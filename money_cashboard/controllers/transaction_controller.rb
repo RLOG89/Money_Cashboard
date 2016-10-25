@@ -1,7 +1,8 @@
 require_relative('../models/transaction')
 
 get '/transactions/?' do
-  @transactions = Transaction.all
+  query = params[:search]
+  @transactions = Transaction.all(query)
   erb( :'transactions/index' )
 end
 

@@ -47,9 +47,12 @@ class Tag
     return budget_for_month
   end
 
-  def budget_reset
-    
-  end
+  # def budget_reset
+  #   if in_date_range?(@date, @date) == true
+  #     remaining_budget
+  #   else
+      
+  # end
 
   def self.update( options )
     sql = "UPDATE tags SET

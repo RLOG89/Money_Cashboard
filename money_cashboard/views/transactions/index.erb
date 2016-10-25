@@ -5,6 +5,12 @@
 <p>£<%= Transaction.total_spend %>
 <hr>
 
+<form method="get">
+  Search by Amount
+  <input name="search" value="" type="number" />
+  <input type="submit" value="search" />
+</form>
+
 <% @transactions.each do |transaction| %>
 <b>Date</b>
 <p><%= transaction.date %></p>
