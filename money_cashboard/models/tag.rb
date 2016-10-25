@@ -47,6 +47,10 @@ class Tag
     return budget_for_month
   end
 
+  def budget_reset
+    
+  end
+
   def self.update( options )
     sql = "UPDATE tags SET
     name = '#{options['name']}',

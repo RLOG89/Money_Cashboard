@@ -32,6 +32,21 @@ class Transaction
     return Merchant.map_item( sql )
   end
 
+  def string_to_time( string )
+    string_parts = string.split("-")
+    year = string_parts[0]
+    month = string_parts[1]
+    day = string_parts[2]
+    return Time.new(year, month, day)
+  end
+
+  def in_date_range?( start_date, end_date )
+    transaction_date = string_to_time( @date )
+    start_date = string_to_time( start_date )
+    end_date = string_to_time( end_date )
+    transaction_date.between?(start_date, end_date)
+  end
+
   def self.update( options )
     sql = "UPDATE transactions SET (date, merchant_id, amount, tag_id) 
     = ('#{options['date']}', #{options['merchant_id']}, #{options['amount']}, #{options['tag_id']})
