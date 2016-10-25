@@ -24,12 +24,12 @@ class Merchant
     Transaction.map_items( sql )
   end
 
-  def merchant_transaction_check?
+  # def merchant_transaction_check?
     #check if transaction.merchant.name has been used before (.uniq?)
     #if yes check what transaction.tag was last time 
     #set transaction.tag to the same value
     #if no then do nothing
-  end
+  # end
 
   def self.update( options )
     sql = "UPDATE merchants SET

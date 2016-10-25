@@ -32,7 +32,17 @@ class Tag
     if (result_hash.nil?)
       return 0.0
     end
-     return result_hash['sum'].to_f
+    return result_hash['sum'].to_f
+  end
+
+  def remaining_budget
+    total_budget = tag.budget
+    total_spent = 0 
+    transaction = transactions.each do |transaction|
+      total_spent += transaction.amount 
+      remaining_budget = total_budget - total_spent
+    end
+    return remaining_budget
   end
 
   def self.update( options )
