@@ -5,7 +5,8 @@ DROP TABLE IF EXISTS merchants;
 CREATE TABLE tags (
 id SERIAL4 PRIMARY KEY,
 name VARCHAR(255),
-colour VARCHAR(50)
+colour VARCHAR(50),
+budget DECIMAL(19,2)
 );
 
 CREATE TABLE merchants (

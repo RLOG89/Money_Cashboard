@@ -4,8 +4,10 @@
   <input type="hidden" name="_method" value="put">
   <label for="name">Name:</label>
   <input type="text" name="name" value="<%= @tag.name %>">
-  <label for="colour">Name:</label>
-  <input type="color" name="colour" value="<%= @tag.colour %>"> <br>
+  <label for="colour">Colour:</label>
+  <input type="color" name="colour" value="<%= @tag.colour %>">
+  <label for="budget">Budget(£):</label>
+  <input type="number" step="0.01" min="0" name="budget" value="<%= @tag.budget %>"> <br>
   <input type='submit' value="Update Tag">
 </form>
 <form action="/tags/<%= @tag.id %>" method="post">
