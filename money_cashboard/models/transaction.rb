@@ -1,5 +1,6 @@
-require('date')
+# require('date')
 require_relative('../db/sql_runner')
+
 
 class Transaction
 
@@ -59,15 +60,34 @@ class Transaction
     SqlRunner.run( sql )
   end
 
+  # def self.all( query= "" )
+  #   query1 = query.to_f
+  #   query2 = query.to_s
+  #   query3 = query.to_s
+  #   sql = "SELECT * FROM transactions" 
+  #   sql = sql + " WHERE amount ='#{query1}'" unless (query1 < 1.00)
+  #   sql = sql + " WHERE date BETWEEN '#{query2}' AND '#{query3}' " 
+  #   return Transaction.map_items( sql )
+  # end
+
   def self.all( query= "" )
     query1 = query.to_f
     query2 = query.to_s
-    query3 = query.to_s
+    # query3 = query.to_s
     sql = "SELECT * FROM transactions" 
     sql = sql + " WHERE amount ='#{query1}'" unless (query1 < 1.00)
-    # sql = sql + " WHERE date BETWEEN '#{query2}' AND '#{query3}' " 
+    # sql = sql + " WHERE date = '#{query2}'" unless query2.empty? 
     return Transaction.map_items( sql )
   end
+
+  # def self.all( query="", date="2016-30-10", amount=0.0  )
+  #   sql = "SELECT * FROM transactions"
+  #   sql = sql + " WHERE amount ='#{amount}'" unless (amount.to_f < 1.00) 
+  #   sql = sql + " AND WHERE date = '#{date}'" unless date.empty?
+  #   binding.pry
+  #   puts "Some shit here to print #{sql}"
+  #   return Transaction.map_items( sql )
+  # end
 
   def self.map_items( sql )
     transactions = SqlRunner.run( sql )

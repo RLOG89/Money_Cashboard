@@ -1,8 +1,8 @@
-<div>
 <h1>Transactions</h1>
-
-<h3>Total Spend</h3>
-<p>£<%= Transaction.total_spend %>
+  <div class="top_section">
+   <h3>Total Spend</h3>
+   <p>£<%= Transaction.total_spend %></p>
+  </div>
 
 <form method="get">
   Search by Amount
@@ -11,29 +11,28 @@
 </form>
 <form method="get">
   Search by/between Date
-  <input name="search_date1" value="" type="date" />
-  <input name="search_date2" value="" type="date" />
+  <input name="search" value="" type="date" />
   <input type="submit" value="search" />
 </form>
 
 <hr>
 
 <% @transactions.each do |transaction| %>
-<b>Date</b>
-<p><%= transaction.date %></p>
-<b>Merchant</b>
-<p><%= transaction.merchant.name %></p>
-<b>Amount</b>
-<p>£<%= sprintf('%.2f', transaction.amount) %></p>
-<b>Tag</b>
-<p style='background-color:<%= transaction.tag.colour %>;' ><%= transaction.tag.name %></p>
-<a href="/transactions/<%= transaction.id %>">View</a>
-<a href="/transactions/<%= transaction.id %>/edit">Edit transaction</a><br>
-<hr>
+  <div class="t_index">
+    <b>Date</b>
+    <p><%= transaction.date %></p>
+    <b>Merchant</b>
+    <p><%= transaction.merchant.name %></p>
+    <b>Amount</b>
+    <p>£<%= sprintf('%.2f', transaction.amount) %></p>
+    <b>Tag</b>
+    <p class="transaction_tag" style='background-color:<%= transaction.tag.colour %>;' ><%= transaction.tag.name %></p>
+    <a href="/transactions/<%= transaction.id %>">View</a>
+    <a href="/transactions/<%= transaction.id %>/edit">Edit transaction</a><br>
+  </div>
 <% end %>
 <hr>
 <a href="/transactions/new">Add new transaction</a><br>
 
-</div>
 
 

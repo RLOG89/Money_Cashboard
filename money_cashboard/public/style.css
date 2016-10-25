@@ -1,12 +1,30 @@
-span#tag {
+.tag {
   display: block;
   width: 50px;
   height: 50px;
+  box-shadow: 5px 5px 3px #000;
+  margin: 10px;
+}
+
+.transaction_tag {
+  display: block;
+  box-shadow: 5px 5px 3px #000;
+  margin: 10px;
+  padding: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 body {
   font-family: "Trebuchet MS";
   margin: 0;
+  background-image: url("/img/creditcard.jpeg");
+  background-size: 100%;
+}
+
+body > img {
+  opacity: 5%
 }
 
 nav ul li {
@@ -54,3 +72,28 @@ main {
   margin: 10px;
 }
 
+.t_index{
+  margin-left: 20px;
+  border: 1px solid #000;
+  float:left;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #EEE
+}
+
+.merchant{
+  min-width: 100px
+}
+
+hr{
+  clear: both;
+  margin: 10px;
+}
+
+h1{
+  margin-left: 20px
+}
+
+.top_section{
+  margin-left: 20px
+}

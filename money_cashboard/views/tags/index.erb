@@ -1,25 +1,25 @@
-<div>
 <h1>Tags</h1>
 
+
 <% @tags.each do |tag| %>
-  <h3>Total Spend</h3>
-  <p>£<%= sprintf('%.2f', tag.total_spend) %></p>
-  
-  <b>Name</b>
-  <p><%= tag.name %></p>
-  
-  <b>Colour</b>
-  <span id='tag' style="background-color: <%=tag.colour%>;"></span>
-  
-  <b>Budget</b>
-  <p>£<%= sprintf('%.2f', tag.budget) %></p>
-  <b>Remaining Budget</b>
-  <p>£<%= sprintf('%.2f', tag.remaining_budget) %></p>
-  <a href="/tags/<%= tag.id %>">View</a>
-  <a href="/tags/<%= tag.id %>/edit">Edit tag</a><br>
-  <hr>
+  <div class="t_index">
+    <h3>Total Spend</h3>
+    <p>£<%= sprintf('%.2f', tag.total_spend) %></p>
+    
+    <b>Name</b>
+    <p><%= tag.name %></p>
+    
+    <b>Colour</b>
+    <span class="tag" style="background-color: <%=tag.colour%>;"></span>
+    
+    <b>Budget</b>
+    <p>£<%= sprintf('%.2f', tag.budget) %></p>
+    <b>Remaining Budget</b>
+    <p>£<%= sprintf('%.2f', tag.remaining_budget) %></p>
+    <a href="/tags/<%= tag.id %>">View</a>
+    <a href="/tags/<%= tag.id %>/edit">Edit tag</a><br>
+  </div>
 <% end %>
 
 <hr>
 <a href="/tags/new">Add new tag</a><br>
-</div>
