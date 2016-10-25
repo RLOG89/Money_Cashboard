@@ -12,11 +12,13 @@ tag2 = Tag.new({'name' => "Bills", 'colour' => "red", 'budget' => 500.00})
 tag3 = Tag.new({'name' => "Leisure", 'colour' => "green", 'budget' => 200.00})
 tag4 = Tag.new({'name' => "Transport", 'colour' => "purple", 'budget' => 100.00})
 tag5 = Tag.new({'name' => "Savings", 'colour' => "orange", 'budget' => 500.00})
+tag6 = Tag.new({'name' => "Direct Debits", 'colour' => "violet", 'budget' => 125.00})
 tag1.save
 tag2.save
 tag3.save
 tag4.save
 tag5.save
+tag6.save
 
 merchant1 = Merchant.new({'name' => "Tesco"})
 merchant2 = Merchant.new({'name' => "Brauhaus"})

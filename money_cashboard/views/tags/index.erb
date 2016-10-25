@@ -13,7 +13,7 @@
   
   <b>Budget</b>
   <p>£<%= sprintf('%.2f', tag.budget) %></p>
-  <p>£<%=  tag.remaining_budget %></p>
+  <p>£<%= sprintf('%.2f', tag.remaining_budget) %></p>
   <a href="/tags/<%= tag.id %>">View</a>
   <a href="/tags/<%= tag.id %>/edit">Edit tag</a><br>
   <hr>

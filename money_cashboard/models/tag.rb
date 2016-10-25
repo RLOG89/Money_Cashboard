@@ -50,7 +50,7 @@ class Tag
   def self.update( options )
     sql = "UPDATE tags SET
     name = '#{options['name']}',
-    colour = '#{options['colour']}'
+    colour = '#{options['colour']}',
     budget = #{options['budget']}
     WHERE id = #{options['id']}"
     SqlRunner.run( sql )
