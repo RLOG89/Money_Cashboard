@@ -7,11 +7,11 @@ Tag.delete_all
 Merchant.delete_all
 Transaction.delete_all
 
-tag1 = Tag.new({'name' => "Food", 'colour' => "blue"})
-tag2 = Tag.new({'name' => "Bills", 'colour' => "red"})
-tag3 = Tag.new({'name' => "Leisure", 'colour' => "green"})
-tag4 = Tag.new({'name' => "Transport", 'colour' => "purple"})
-tag5 = Tag.new({'name' => "Savings", 'colour' => "orange"})
+tag1 = Tag.new({'name' => "Food", 'colour' => "blue", 'budget' => 200.00})
+tag2 = Tag.new({'name' => "Bills", 'colour' => "red", 'budget' => 500.00})
+tag3 = Tag.new({'name' => "Leisure", 'colour' => "green", 'budget' => 200.00})
+tag4 = Tag.new({'name' => "Transport", 'colour' => "purple", 'budget' => 100.00})
+tag5 = Tag.new({'name' => "Savings", 'colour' => "orange", 'budget' => 500.00})
 tag1.save
 tag2.save
 tag3.save
