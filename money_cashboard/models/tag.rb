@@ -3,7 +3,7 @@ require_relative('./transaction')
 require('pry-byebug')
 class Tag
 
-  attr_reader( :id, :name, :colour )
+  attr_reader( :id, :name, :colour, :budget )
 
   def initialize( options )
     id = options['id'].to_i 

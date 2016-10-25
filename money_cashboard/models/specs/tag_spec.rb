@@ -8,7 +8,8 @@ class TestTransaction < MiniTest::Test
   def setup
     options = {
       'name' => "Food",
-      'colour' => "Red"
+      'colour' => "Red",
+      'budget' => 200
     }
     @tag = Tag.new( options )
   end
@@ -19,6 +20,10 @@ class TestTransaction < MiniTest::Test
 
   def test_tag_has_colour
     assert_equal("Red", @tag.colour)
+  end
+
+  def test_tag_has_budget
+    assert_equal(200, @tag.budget)
   end
 
 end
