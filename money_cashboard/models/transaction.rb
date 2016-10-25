@@ -60,9 +60,12 @@ class Transaction
   end
 
   def self.all( query= "" )
-    query = query.to_f
-    sql = "SELECT * FROM transactions"
-    sql = sql + " WHERE amount ='#{query}'" unless (query < 1.00)
+    query1 = query.to_f
+    query2 = query.to_s
+    query3 = query.to_s
+    sql = "SELECT * FROM transactions" 
+    sql = sql + " WHERE amount ='#{query1}'" unless (query1 < 1.00)
+    # sql = sql + " WHERE date BETWEEN '#{query2}' AND '#{query3}' " 
     return Transaction.map_items( sql )
   end
 

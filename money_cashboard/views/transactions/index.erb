@@ -3,13 +3,20 @@
 
 <h3>Total Spend</h3>
 <p>£<%= Transaction.total_spend %>
-<hr>
 
 <form method="get">
   Search by Amount
   <input name="search" value="" type="number" />
   <input type="submit" value="search" />
 </form>
+<form method="get">
+  Search by/between Date
+  <input name="search_date1" value="" type="date" />
+  <input name="search_date2" value="" type="date" />
+  <input type="submit" value="search" />
+</form>
+
+<hr>
 
 <% @transactions.each do |transaction| %>
 <b>Date</b>
