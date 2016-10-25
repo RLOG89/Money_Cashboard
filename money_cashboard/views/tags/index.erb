@@ -2,20 +2,21 @@
 <h1>Tags</h1>
 
 <% @tags.each do |tag| %>
-<h3>Total Spend</h3>
-<p>£<%= sprintf('%.2f', tag.total_spend) %></p>
-
-<b>Name</b>
-<p><%= tag.name %></p>
-
-<b>Colour</b>
-<span id='tag' style="background-color: <%=tag.colour%>;"></span>
-
-<b>Budget</b>
-<p>£<%= sprintf('%.2f', tag.budget) %></p>
-<a href="/tags/<%= tag.id %>">View</a>
-<a href="/tags/<%= tag.id %>/edit">Edit tag</a><br>
-<hr>
+  <h3>Total Spend</h3>
+  <p>£<%= sprintf('%.2f', tag.total_spend) %></p>
+  
+  <b>Name</b>
+  <p><%= tag.name %></p>
+  
+  <b>Colour</b>
+  <span id='tag' style="background-color: <%=tag.colour%>;"></span>
+  
+  <b>Budget</b>
+  <p>£<%= sprintf('%.2f', tag.budget) %></p>
+  <p>£<%=  tag.remaining_budget %></p>
+  <a href="/tags/<%= tag.id %>">View</a>
+  <a href="/tags/<%= tag.id %>/edit">Edit tag</a><br>
+  <hr>
 <% end %>
 
 <hr>
