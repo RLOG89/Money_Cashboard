@@ -40,27 +40,18 @@ end
 transactions = Array.new
 
 tags.each do |tag|
-  date = '2016/10/22' #randomise later
-  merchant = merchants.sample
-  amount = 100.00 #randomise later
-  transactions.push(Transaction.new({'date' => date, 'merchant_id' => merchant.id, 'amount' => amount, 'tag_id' => tag.id}))
+  5.times do 
+    date = "#{Random.rand(6)+2010}/#{Random.rand(12)+1}/#{Random.rand(29)+1}" 
+    merchant = merchants.sample
+    amount = Random.rand(tag.budget) 
+    transactions.push(Transaction.new({
+      'date' => date, 
+      'merchant_id' => merchant.id,
+      'amount' => amount, 
+      'tag_id' => tag.id}))
+  end
 end
-
-# transactions = [
-#   Transaction.new({'date' => '2016/10/22', 'merchant_id' => merchant2.id, 'amount' => 43.50, 'tag_id' => tag[0].id}),
-#   Transaction.new({'date' => '2016/10/24', 'merchant_id' => merchant1.id, 'amount' => 21.55, 'tag_id' => tag[1].id}),
-#   Transaction.new({'date' => '2016/10/26', 'merchant_id' => merchant3.id, 'amount' => 57.00, 'tag_id' => tag2.id}),
-#   Transaction.new({'date' => '2016/10/30', 'merchant_id' => merchant6.id, 'amount' => 250.00, 'tag_id' => tag5.id}),
-#   Transaction.new({'date' => '2016/10/28', 'merchant_id' => merchant7.id, 'amount' => 40.00, 'tag_id' => tag4.id}),
-#   Transaction.new({'date' => '2016/10/29', 'merchant_id' => merchant1.id, 'amount' => 65.49, 'tag_id' => tag1.id}),
-#   Transaction.new({'date' => '2016/10/30', 'merchant_id' => merchant2.id, 'amount' => 8.95, 'tag_id' => tag3.id}),
-#   Transaction.new({'date' => '2016/10/30', 'merchant_id' => merchant2.id, 'amount' => 21.50, 'tag_id' => tag3.id}),
-#   Transaction.new({'date' => '2016/10/30', 'merchant_id' => merchant8.id, 'amount' => 12.55, 'tag_id' => tag4.id})
-# ]
 
 transactions.each do |transaction|
   transaction.save
 end
-
-binding.pry
-nil
