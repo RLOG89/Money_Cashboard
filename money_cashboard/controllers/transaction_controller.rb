@@ -1,4 +1,5 @@
 require_relative('../models/transaction')
+require('date')
 
 get '/transactions/?' do
   min = params[:search1]

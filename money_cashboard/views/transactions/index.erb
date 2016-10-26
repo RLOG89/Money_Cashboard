@@ -12,8 +12,8 @@
 </form>
 <form method="get">
   Search All Transactions By Date Range:
-  <input name="search3" value=2010-01-01 type="date" /> to 
-  <input name="search4" value=2010-01-01 type="date" />
+  <input name="search3" value="<%=(Date.today-1).to_s%>" type="date" /> to 
+  <input name="search4" value="<%=Date.today.to_s%>" type="date" />
   <input type="submit" value="Search" />
 </form>
 
@@ -34,7 +34,7 @@
   </div>
 <% end %>
 <hr>
-<a href="/transactions/new">Add new transaction</a><br>
+<a href="/transactions/new"class="button" >Add new transaction</a><br>
 
 
 
