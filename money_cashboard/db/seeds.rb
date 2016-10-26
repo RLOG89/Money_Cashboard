@@ -40,10 +40,10 @@ end
 transactions = Array.new
 
 tags.each do |tag|
-  5.times do 
+  3.times do 
     date = "#{Random.rand(6)+2010}/#{Random.rand(12)+1}/#{Random.rand(29)+1}" 
     merchant = merchants.sample
-    amount = Random.rand(tag.budget) 
+    amount = Random.rand(tag.budget-80) 
     transactions.push(Transaction.new({
       'date' => date, 
       'merchant_id' => merchant.id,
