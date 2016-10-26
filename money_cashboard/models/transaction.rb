@@ -65,8 +65,8 @@ class Transaction
     start_date = start_date.to_s
     end_date = end_date.to_s
     sql = "SELECT * FROM transactions" 
-    sql = sql + " WHERE transactions.amount BETWEEN #{min} AND #{max}" unless (max < 1.00)
-    sql = sql + " WHERE transactions.date BETWEEN '#{start_date}' AND '#{end_date}'" unless end_date.empty?
+    sql += " WHERE transactions.amount BETWEEN #{min} AND #{max}" unless (max < 1.00)
+    sql += " WHERE transactions.date BETWEEN '#{start_date}' AND '#{end_date}'" unless end_date.empty?
     return Transaction.map_items( sql )
   end
 

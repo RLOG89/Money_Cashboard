@@ -2,7 +2,7 @@
 
 <form action="/transactions" method="post">
   <label for="date">Date:</label>
-  <input type="date" name="date" value="2016-01-01"">
+  <input type="date" name="date" value="<%= Date.today %>">
 
   <label for="merchant">Merchant:</label>
   <select name="merchant_id">
