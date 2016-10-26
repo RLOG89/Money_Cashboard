@@ -14,8 +14,9 @@ class Tag
   end
 
   def save()
+    name = @name.gsub("'", "''")
     sql = "INSERT INTO tags (name, colour, budget)
-    VALUES ('#{@name}', '#{@colour}', #{@budget})
+    VALUES ('#{name}', '#{@colour}', #{@budget})
     RETURNING *"
     tag_data = SqlRunner.run( sql )
     @id = tag_data.first['id'].to_i
@@ -27,7 +28,8 @@ class Tag
   end
 
   def total_spend()
-    sql = "SELECT SUM (transactions.amount), tags.name FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id  WHERE tags.name = '#{@name}' GROUP BY tags.name;"
+    name = @name.gsub("'", "''")
+    sql = "SELECT SUM (transactions.amount), tags.name FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id  WHERE tags.name = '#{name}' GROUP BY tags.name;"
     result_hash = SqlRunner.run( sql ).first
     if (result_hash.nil?)
       return 0.0
@@ -48,8 +50,9 @@ class Tag
   end
 
   def self.update( options )
+    name = (options["name"]).gsub("'", "''")
     sql = "UPDATE tags SET
-    name = '#{options['name']}',
+    name = '#{name}',
     colour = '#{options['colour']}',
     budget = #{options['budget']}
     WHERE id = #{options['id']}"

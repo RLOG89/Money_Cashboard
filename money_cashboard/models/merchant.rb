@@ -12,8 +12,9 @@ class Merchant
   end
 
   def save()
+    name = @name.gsub("'", "''")
     sql = "INSERT INTO merchants (name)
-    VALUES ('#{@name}')
+    VALUES ('#{name}')
     RETURNING *"
     merchant_data = SqlRunner.run( sql )
     @id = merchant_data.first['id'].to_i
@@ -25,8 +26,9 @@ class Merchant
   end
 
   def self.update( options )
+    name = (options["name"]).gsub("'", "''")
     sql = "UPDATE merchants SET
-    name = '#{options['name']}'
+    name = '#{name}'
     WHERE id = #{options['id']}"
     SqlRunner.run( sql )
   end
