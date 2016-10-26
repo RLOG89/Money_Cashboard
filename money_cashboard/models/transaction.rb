@@ -1,5 +1,5 @@
+require('date')
 require_relative('../db/sql_runner')
-
 
 class Transaction
 
@@ -60,8 +60,8 @@ class Transaction
   end
 
   def self.all( min=0, max=0, start_date="", end_date="" )
-    min = min.to_f
-    max = max.to_f
+    min = min.to_f 
+    max = max.to_f 
     start_date = start_date.to_s
     end_date = end_date.to_s
     sql = "SELECT * FROM transactions" 
