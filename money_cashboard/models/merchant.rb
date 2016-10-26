@@ -11,7 +11,7 @@ class Merchant
     @name = options['name']
   end
 
-  def save
+  def save()
     sql = "INSERT INTO merchants (name)
     VALUES ('#{@name}')
     RETURNING *"
@@ -19,17 +19,10 @@ class Merchant
     @id = merchant_data.first['id'].to_i
   end
 
-  def transactions
+  def transactions()
     sql = "SELECT * FROM transactions INNER JOIN merchants ON transactions.merchant_id = merchants.id WHERE merchants.id =#{@id}"
     Transaction.map_items( sql )
   end
-
-  # def merchant_transaction_check?
-    #check if transaction.merchant.name has been used before (.uniq?)
-    #if yes check what transaction.tag was last time 
-    #set transaction.tag to the same value
-    #if no then do nothing
-  # end
 
   def self.update( options )
     sql = "UPDATE merchants SET
@@ -43,7 +36,7 @@ class Merchant
     SqlRunner.run( sql )
   end
 
-  def self.all
+  def self.all()
     sql = "SELECT * FROM merchants"    
     return Merchant.map_items( sql )
   end

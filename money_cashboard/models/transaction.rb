@@ -15,7 +15,7 @@ class Transaction
     @tag_id = options['tag_id'].to_i
   end
 
-  def save
+  def save()
     sql = "INSERT INTO transactions (date, merchant_id, amount, tag_id)
     VALUES ('#{@date}', #{@merchant_id}, #{@amount}, #{@tag_id})
     RETURNING *"
@@ -23,12 +23,12 @@ class Transaction
     @id = transaction_data.first['id'].to_i
   end
 
-  def tag
+  def tag()
     sql = "SELECT * FROM tags WHERE id = #{@tag_id}"
     return Tag.map_item( sql )
   end
 
-  def merchant
+  def merchant()
     sql = "SELECT * FROM merchants WHERE id = #{@merchant_id}"
     return Merchant.map_item( sql )
   end
@@ -80,15 +80,6 @@ class Transaction
     return Transaction.map_items( sql )
   end
 
-  # def self.all( query="", date="2016-30-10", amount=0.0  )
-  #   sql = "SELECT * FROM transactions"
-  #   sql = sql + " WHERE amount ='#{amount}'" unless (amount.to_f < 1.00) 
-  #   sql = sql + " AND WHERE date = '#{date}'" unless date.empty?
-  #   binding.pry
-  #   puts "Some shit here to print #{sql}"
-  #   return Transaction.map_items( sql )
-  # end
-
   def self.map_items( sql )
     transactions = SqlRunner.run( sql )
     result = transactions.map { |transaction| Transaction.new(transaction) }
@@ -104,7 +95,7 @@ class Transaction
     return Transaction.map_item( sql )
   end
 
-  def self.total_spend
+  def self.total_spend()
     total = 0
     all_transactions = Transaction.all
     for transaction in all_transactions
@@ -117,6 +108,13 @@ class Transaction
   def self.delete_all()
     sql = "DELETE FROM transactions"
     SqlRunner.run(sql)
+  end
+
+  def self.numeric_search( min, max ) 
+    min = min.to_f
+    max = max.to_f
+    sql = "SELECT * FROM transactions WHERE transactions.amount >= #{min} AND <= #{max}"
+    Transaction.map_items( sql )
   end
 
 end

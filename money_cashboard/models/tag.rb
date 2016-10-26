@@ -13,7 +13,7 @@ class Tag
     @budget = options['budget'].to_f
   end
 
-  def save
+  def save()
     sql = "INSERT INTO tags (name, colour, budget)
     VALUES ('#{@name}', '#{@colour}', #{@budget})
     RETURNING *"
@@ -21,12 +21,12 @@ class Tag
     @id = tag_data.first['id'].to_i
   end
 
-  def transactions
+  def transactions()
     sql = "SELECT * FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id WHERE tags.id =#{@id}"
     Transaction.map_items( sql )
   end
 
-  def total_spend
+  def total_spend()
     sql = "SELECT SUM (transactions.amount), tags.name FROM transactions INNER JOIN tags ON transactions.tag_id = tags.id  WHERE tags.name = '#{@name}' GROUP BY tags.name;"
     result_hash = SqlRunner.run( sql ).first
     if (result_hash.nil?)
@@ -51,7 +51,7 @@ class Tag
   #   if in_date_range?(@date, @date) == true
   #     remaining_budget
   #   else
-      
+
   # end
 
   def self.update( options )
@@ -68,7 +68,7 @@ class Tag
     SqlRunner.run( sql )
   end
 
-  def self.all
+  def self.all()
     sql = "SELECT * FROM tags"    
     return Tag.map_items( sql )
   end
