@@ -1,7 +1,10 @@
 <h1>Money Cashboard</h1>
 <div class="welcome">
 <b>Welcome to your money cashboard!</b>
- <p>Stay in control of your finances by easily identifying the different areas of your spending. Keep track of all transactions you make and use the search functions to quickly find historic data, or check how much you've spent with an individual merchant.  On your right you can see how much you've spent this month, and know exactly how much more you can spend to stay within budget.</p>
+ <p>
+  Stay in control of your finances by easily identifying the different areas of your spending.
+  Keep track of all transactions you make and use the search functions to quickly find historic data, or check how much you've spent with an individual merchant.</p>
+  <p>Take a look at how much of each of your budgets you've spent.</p>
 </div>
 <table>
   <tr>
@@ -12,8 +15,8 @@
 <tr>
    <% @tags.each do |tag| %>
     <td><a href='/tags/<%= tag.id %>' class="transaction_tag" style='background-color:<%= tag.colour %>;' ><%= tag.name %></a></td>
-    <td>£<%= sprintf('%.2f', tag.remaining_budget) %>/£<%= sprintf('%2.f',tag.budget)%></td>
-    <td>You have <%= sprintf('%.2f', (tag.remaining_budget / tag.budget*100)) %>% of your budget remaining</td>
+    <td><span style="<%= "color: red" if tag.remaining_budget < 0 %>">£<%= sprintf('%.2f', tag.remaining_budget) %>/£<%= sprintf('%2.f',tag.budget)%></span></td>
+    <td>You have <span style="<%= "color: red" if tag.remaining_budget < 0 %>"><%= sprintf('%.2f', (tag.remaining_budget / tag.budget*100)) %>% </span>of your budget remaining</td>
 </tr>
 <% end %>
 </table>
