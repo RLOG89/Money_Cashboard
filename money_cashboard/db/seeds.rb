@@ -23,7 +23,7 @@ tags.each do |tag|
 end
 
 merchants = [
-  Merchant.new({'name' => "Tesco"}),
+  Merchant.new({'name' => "Sainsburys"}),
   Merchant.new({'name' => "Brauhaus"}),
   Merchant.new({'name' => "GBEnergySupply"}),
   Merchant.new({'name' => "The Wally Dug"}),
