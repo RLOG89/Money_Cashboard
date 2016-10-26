@@ -1,8 +1,12 @@
 require_relative('../models/transaction')
 
 get '/transactions/?' do
-  query = params[:search]
-  @transactions = Transaction.all(query)
+  min = params[:search1]
+  max = params[:search2]
+  start_date = params[:search3]
+  end_date = params[:search4]
+  @transactions = Transaction.all(min, max, start_date, end_date)
+  # @transactions = Transaction.numeric_search(min, max)
   erb( :'transactions/index' )
 end
 

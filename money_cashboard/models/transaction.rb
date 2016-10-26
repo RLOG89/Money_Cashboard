@@ -1,4 +1,3 @@
-# require('date')
 require_relative('../db/sql_runner')
 
 
@@ -60,23 +59,14 @@ class Transaction
     SqlRunner.run( sql )
   end
 
-  # def self.all( query= "" )
-  #   query1 = query.to_f
-  #   query2 = query.to_s
-  #   query3 = query.to_s
-  #   sql = "SELECT * FROM transactions" 
-  #   sql = sql + " WHERE amount ='#{query1}'" unless (query1 < 1.00)
-  #   sql = sql + " WHERE date BETWEEN '#{query2}' AND '#{query3}' " 
-  #   return Transaction.map_items( sql )
-  # end
-
-  def self.all( query= "" )
-    query1 = query.to_f
-    query2 = query.to_s
-    # query3 = query.to_s
+  def self.all( min=0, max=0, start_date="", end_date="" )
+    min = min.to_f
+    max = max.to_f
+    start_date = start_date.to_s
+    end_date = end_date.to_s
     sql = "SELECT * FROM transactions" 
-    sql = sql + " WHERE amount ='#{query1}'" unless (query1 < 1.00)
-    # sql = sql + " WHERE date = '#{query2}'" unless query2.empty? 
+    sql = sql + " WHERE transactions.amount BETWEEN #{min} AND #{max}" unless (max < 1.00)
+    sql = sql + " WHERE transactions.date BETWEEN '#{start_date}' AND '#{end_date}'" unless end_date.empty?
     return Transaction.map_items( sql )
   end
 
@@ -110,11 +100,11 @@ class Transaction
     SqlRunner.run(sql)
   end
 
-  def self.numeric_search( min, max ) 
-    min = min.to_f
-    max = max.to_f
-    sql = "SELECT * FROM transactions WHERE transactions.amount >= #{min} AND <= #{max}"
-    Transaction.map_items( sql )
-  end
+  # def self.numeric_search( min, max ) 
+  #   min = min.to_f 
+  #   max = max.to_f 
+  #   sql = "SELECT * FROM transactions WHERE transactions.amount BETWEEN #{min} AND #{max}"
+  #   Transaction.map_items( sql )
+  # end
 
 end
