@@ -7,7 +7,6 @@ get '/transactions/?' do
   start_date = params[:search3]
   end_date = params[:search4]
   @transactions = Transaction.all(min, max, start_date, end_date)
-  # @transactions = Transaction.numeric_search(min, max)
   erb( :'transactions/index' )
 end
 

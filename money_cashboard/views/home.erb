@@ -15,7 +15,7 @@
 <tr>
    <% @tags.each do |tag| %>
     <td><a href='/tags/<%= tag.id %>' class="transaction_tag" style='background-color:<%= tag.colour %>;' ><%= tag.name %></a></td>
-    <td><span style="<%= "color: red" if tag.remaining_budget < 0 %>">£<%= sprintf('%.2f', tag.remaining_budget) %>/£<%= sprintf('%2.f',tag.budget)%></span></td>
+    <td><span style="<%= "color: red" if tag.remaining_budget < 0 %>">£<%= sprintf('%.2f', tag.remaining_budget) %></span>/£<%= sprintf('%2.f',tag.budget)%></td>
     <td>You have <span style="<%= "color: red" if tag.remaining_budget < 0 %>"><%= sprintf('%.2f', (tag.remaining_budget / tag.budget*100)) %>% </span>of your budget remaining</td>
 </tr>
 <% end %>
